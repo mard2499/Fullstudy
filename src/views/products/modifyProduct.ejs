@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body class="body-newProduct">
+    <%- include('../partials/header') %>
+    <main class="main-newProduct">
+        <form action="/modifyProduct/<%= productToEdit.productId %>?_method=PUT" method="POST" enctype="multipart/form-data" multiple>
+            <div class="items-new-product">
+                <label class="productName">
+                    Nombre del producto
+                </label>
+                <input type="text" name="productName" value="<%= productToEdit.productName %>" class="item">
+            </div>
+            <div class="items-new-product">
+                <label>
+                    Descripción
+                </label>
+                <input type="text" name="productDescription" value="<%= productToEdit.productDescription %>" class="item">
+                <p class="mensaje-alerta"></p>
+            </div>
+            <div class="items-new-product">
+                <label>
+                    Imagen
+                </label>
+                <div class="productImage">
+                    <input type="file" name="productImage" class="item-productImage" multiple>
+                </div>
+                
+            </div>
+            <div class="items-new-product">
+                <label>
+                    Categoría
+                </label>
+                <div class="item-categorias">
+                    <select name="productCategory" class="item-categorias2">
+                        <option value="" class="categoria-particular">Seleccione una Categoría</option>
+                        <% let categories=['Desarrollo web', 'Desarrollo Móvil' , 'Ciberseguridad'
+                                    , 'Ciencia de datos' , 'Inteligencia Artificial'] %>
+                        <% categories.forEach(specificCategory=> { %>
+                            <option value="<%= specificCategory %>" class="categoria-particular">
+                                <%= specificCategory %>
+                            </option>
+                        <% }) %>
+                    </select>
+                    
+                </div>
+            </div>
+           
+            <div class="items-new-product">
+                <label>
+                    Precio
+                </label>
+                <input type="text" name="productPrice" value="<%= productToEdit.productPrice %>" class="item">
+            </div>
+            <div class="items-new-product">
+                <button type="submit" class="button-crear-curso"> Modificar curso </button>
+            </div>            
+        </form>
+    </main>
+    <%- include('../partials/footer') %>
+</body>
+</html>

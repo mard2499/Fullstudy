@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/head') %>
+    <body>
+
+        <%- include('../partials/header') %> 
+    
+    <main class="main_profile">   
+        <div class="background_general_course">
+            <section class="general_course">
+                <div class="img_background">                
+                    <img alt="js" class="product_img_pd"  src= <%= "/images/usersProfileImages/" + specificProfile.userImage %>>                     
+                </div>
+                                        
+                <div class="introduction">    
+                    <div class="title_course"><h1><%= specificProfile.userName %></h1>                  
+                    </div> 
+                    <div>
+                        <ul class="introduction_text">
+                            <li class="li_text">The modern JavaScript course for everyone! Master JavaScript with projects, </li>
+                            <li class="li_text">
+                                <span class="mas_vendido">¡El Más vendido!</span>
+                                <span class="introduction_star"><i class="fas fa-star"></i></span>
+                                <span class="introduction_star"><i class="fas fa-star"></i></span>
+                                <span class="introduction_star"><i class="fas fa-star"></i></span>
+                                <span class="introduction_star"><i class="fas fa-star"></i></span>                                
+                                <span class="introduction_star"><i class="fas fa-star-half"></i></span> 
+                                <span><a href="#">10 comentarios</a> </span>
+                                <span>100 estudiantes</span>
+                            </li>
+                            <li class="li_text">
+                                <div class="creator_modify">
+                                    <div class="creator">
+                                        Creado por: Cesar Corregidor Carreño
+                                    </div>
+                                    <div class="modify">
+                                        <a href= <%= "/editProfile/" + specificProfile.userId %> >Modifica tu perfil</a>
+                                    </div>
+                                    <div class="modify">
+                                        <form action="/profile/<%= specificProfile.userId %>?_method=DELETE" method="POST" style="display: inline-flex">
+                                            <button type="submit" class="action-button delete">Eliminar perfil</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </div>    
+    </main>    
+
+    <%- include('../partials/footer') %>
+    
+</body>
+</html>
